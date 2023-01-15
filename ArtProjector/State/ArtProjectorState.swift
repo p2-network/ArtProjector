@@ -58,7 +58,6 @@ class ArtProjectorState: ObservableObject {
     case playing(SurfacePlaylistPlaying)
 
     // hasScreenInfoNoPlaylist( screenID, name, rotation )
-    // hasPlaylist ( screenID, name, rotation, playlist ( loading(id, etag?), checkingAssets(id, etag, assets), downloadingAssets(id, etag, playlist, progress), playing(id, etag, playlist, sceneIndex))
   }
 
   enum Errors: Error {
@@ -69,7 +68,6 @@ class ArtProjectorState: ObservableObject {
     case invalidStateTransition
   }
 
-  @Published var isLoggedIn = false
   @Published var state: State = .startup
 
   let simpleKeychain = SimpleKeychain()
