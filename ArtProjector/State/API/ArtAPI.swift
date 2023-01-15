@@ -185,7 +185,7 @@ enum ArtAPI {
 
       let response = await task.response
       print(response.data.map { String(decoding: $0, as: UTF8.self) } ?? "No data.")
-
+      
       let value = try await task.value
 
       switch value {

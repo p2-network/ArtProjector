@@ -30,6 +30,8 @@
 		CD82C6F8297385050068B2F6 /* DeviceCodeWaiting.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD82C6F7297385050068B2F6 /* DeviceCodeWaiting.swift */; };
 		CD82C6FA2973855B0068B2F6 /* Surface.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD82C6F92973855B0068B2F6 /* Surface.swift */; };
 		CD82C6FC297385700068B2F6 /* SurfaceNoPlaylist.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD82C6FB297385700068B2F6 /* SurfaceNoPlaylist.swift */; };
+		CD82C6FE297391940068B2F6 /* PlayingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD82C6FD297391940068B2F6 /* PlayingView.swift */; };
+		CD82C700297393830068B2F6 /* withCustomRotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD82C6FF297393830068B2F6 /* withCustomRotation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +76,8 @@
 		CD82C6F7297385050068B2F6 /* DeviceCodeWaiting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceCodeWaiting.swift; sourceTree = "<group>"; };
 		CD82C6F92973855B0068B2F6 /* Surface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Surface.swift; sourceTree = "<group>"; };
 		CD82C6FB297385700068B2F6 /* SurfaceNoPlaylist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurfaceNoPlaylist.swift; sourceTree = "<group>"; };
+		CD82C6FD297391940068B2F6 /* PlayingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayingView.swift; sourceTree = "<group>"; };
+		CD82C6FF297393830068B2F6 /* withCustomRotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = withCustomRotation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,6 +195,8 @@
 			children = (
 				CD80949B29557578003CB965 /* RootView.swift */,
 				CD56246E29221FEE00343584 /* ImagePlaybackView.swift */,
+				CD82C6FD297391940068B2F6 /* PlayingView.swift */,
+				CD82C6FF297393830068B2F6 /* withCustomRotation.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -353,9 +359,11 @@
 				CD82C6F5297384BC0068B2F6 /* AuthConfig.swift in Sources */,
 				CD574125295C19AE0049D2E6 /* ArtAPI.swift in Sources */,
 				CD80949C29557578003CB965 /* RootView.swift in Sources */,
+				CD82C700297393830068B2F6 /* withCustomRotation.swift in Sources */,
 				CD82C6FC297385700068B2F6 /* SurfaceNoPlaylist.swift in Sources */,
 				CD82C6F8297385050068B2F6 /* DeviceCodeWaiting.swift in Sources */,
 				CD56246D29221FEE00343584 /* ArtProjectorApp.swift in Sources */,
+				CD82C6FE297391940068B2F6 /* PlayingView.swift in Sources */,
 				CD56249B292241B900343584 /* ArtItem.swift in Sources */,
 				CD208B83297283A8003F0566 /* TaskQueue.swift in Sources */,
 				CD5624992922410900343584 /* BadgeBackground.swift in Sources */,

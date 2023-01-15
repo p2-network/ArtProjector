@@ -33,31 +33,114 @@ struct SurfacePlaylistDownloading {
   let queue: DownloadQueue<ImageDownload>
 }
 
+@MainActor
+class PlaybackState: ObservableObject {
+  @Published var sceneIndex = 0
+  var playlist: ArtResponses.PlaylistResponse.PlaylistHttpResponse.Playlist
+  var assets: [ImageDownload]
+  
+  var changeSceneTimer: Timer?
+
+  var firstImage: Data? {
+    guard let desiredAsset = scene?.assets.first?.assetId else { print("Scene contains no assets")
+      return nil
+    }
+
+    guard let url = assets.first(where: { $0.assetId == desiredAsset })?.url else {
+      print("Asset not found")
+      return nil
+    }
+
+    do {
+      return try Data(contentsOf: url)
+    } catch {
+      print("Error loading image \(error)")
+      return nil
+    }
+  }
+  
+  var scene: ArtResponses.PlaylistResponse.PlaylistHttpResponse.Playlist.Scene? {
+    if sceneIndex >= playlist.scenes.count {
+      return nil
+    }
+
+    return playlist.scenes[sceneIndex]
+  }
+
+  init(sceneIndex: Int = 0, playlist: ArtResponses.PlaylistResponse.PlaylistHttpResponse.Playlist, assets: [ImageDownload]) {
+    self.sceneIndex = sceneIndex
+    self.playlist = playlist
+    self.assets = assets
+
+    // setup timer
+    
+    self.changeScene(index: sceneIndex)
+  }
+
+  func changeScene(index: Int) {
+    if index >= playlist.scenes.count  {
+      print("Index \(index) is out of bounds \(playlist.scenes.count), giving up")
+      // throw ...
+      return
+    }
+    
+    print("Changing scene to \(index)")
+
+    sceneIndex = index
+    
+    changeSceneTimer?.invalidate()
+    changeSceneTimer = nil
+
+    guard let remainingTime = scene?.duration else { return }
+    
+    print("Next scene change in \(remainingTime)")
+
+    // TODO: HACK TIME THING
+    changeSceneTimer = Timer.scheduledTimer(withTimeInterval: TimeInterval(remainingTime / 60), repeats: false) { _ in
+      Task {
+        await self.changeScene(index: self.sceneIndex + 1)
+      }
+    }
+  }
+
+  func nextScene() {
+    let nextScene = sceneIndex + 1
+    // if random...?
+    if nextScene >= playlist.scenes.count {
+      changeScene(index: 0)
+    } else {
+      changeScene(index: nextScene)
+    }
+  }
+}
+
 struct SurfacePlaylistPlaying {
   let surface: Surface
   let playlistId: String
   let playlistEtag: String?
   let playlist: ArtResponses.PlaylistResponse.PlaylistHttpResponse.Playlist
   let assets: [ImageDownload]
+  let playbackState: PlaybackState
 }
 
 @MainActor
 class ArtProjectorState: ObservableObject {
   enum State {
     case startup
+
     case deviceCodeWaiting(DeviceCodeWaiting)
     case deviceCodeInitFailed
     case deviceCodeClaimed
     case hasRefreshToken
+
     case registeringSurface
     case loadingSurfaceInfo
+
     case noPlaylist(SurfaceNoPlaylist)
 
     case loadingPlaylist(SurfacePlaylistLoading)
     case downloadingAssets(SurfacePlaylistDownloading)
     case playing(SurfacePlaylistPlaying)
-
-    // hasScreenInfoNoPlaylist( screenID, name, rotation )
   }
 
   enum Errors: Error {
@@ -154,7 +237,6 @@ class ArtProjectorState: ObservableObject {
     let authRequest = ["grant_type": "urn:ietf:params:oauth:grant-type:device_code", "client_id": AuthConfig.clientID, "device_code": deviceCode] as! [String: String]
 
     let request = AF.request(AuthConfig.tokenEndpoint, method: .post, parameters: authRequest, encoder: JSONParameterEncoder.default)
-//
     do {
       let response = try await request.serializingDecodable(TokenResponse.self).value
       print("resposne \(response)")
@@ -232,7 +314,7 @@ class ArtProjectorState: ObservableObject {
     state = .deviceCodeClaimed
     do {
       try storeRefreshToken(token: token)
-      state = .hasRefreshToken
+      transitionToHasRefreshToken()
     } catch {
       print("Storing the tokens in the keychain failed: \(error)")
       state = .deviceCodeInitFailed
@@ -240,9 +322,12 @@ class ArtProjectorState: ObservableObject {
   }
 
   func becomeActive() {
-    // do we have a refresh token?
+    // TODO: add a state for when deviceCodeWaiting occurred when we were background, then catch that state here.
 
-    // TODO: use self.state, if .deviceCodeWaiting restart deviceCodeTimer (unless it has expired in which case restart etc)
+    guard case .startup = state else {
+      print("Resume active from non startup state")
+      return
+    }
 
     if !hasRefreshToken() {
       print("No one has logged in yet, begin that flow...")
@@ -250,20 +335,23 @@ class ArtProjectorState: ObservableObject {
         await startDeviceCodeFlow()
       }
     } else {
-      state = .hasRefreshToken
-      print("Looks like we have a refresh token, lets find out if we have a bearer token")
-      print("now lets request the /hello endpoint to find out")
-
-      do {
-        try thonk()
-      } catch {
-        print("thonk() error'd: \(error)")
-      }
+      transitionToHasRefreshToken()
     }
   }
 
   func becomeBackgrounded() {
     // TODO: self.deviceCodeTimer?.invalidate()
+    // TODO: Other startup states: other than register can be cancelled
+  }
+
+  // MARK: - Transitions
+
+  func transitionToHasRefreshToken() {
+    // TODO: sanity check - we should only come here from .startup & .deviceCodeClaimed
+
+    state = .hasRefreshToken
+
+    thonk()
   }
 
   func authAccessTokenUnlessExpired() -> String? {
@@ -343,23 +431,14 @@ class ArtProjectorState: ObservableObject {
     throw Errors.unexpectedServerResposne // TODO: Come on, now you're just being lazy
   }
 
-  func assetsNeeded(scenes: [ArtResponses.PlaylistResponse.PlaylistHttpResponse.Playlist.Scene]) -> [String] {
-    var assetIds = Set<String>()
-    for scene in scenes {
-      for asset in scene.assets {
-        assetIds.insert(asset.assetId)
-      }
-    }
-
-    return Array(assetIds)
-  }
-
   func transitionToPlaying(assets: [ImageDownload]) throws {
     guard case let .downloadingAssets(previous) = state else {
       throw Errors.invalidStateTransition
     }
 
-    state = .playing(SurfacePlaylistPlaying(surface: previous.surface, playlistId: previous.playlistId, playlistEtag: previous.playlistEtag, playlist: previous.playlist, assets: assets))
+    let playbackState = PlaybackState(sceneIndex: 0, playlist: previous.playlist, assets: assets)
+
+    state = .playing(SurfacePlaylistPlaying(surface: previous.surface, playlistId: previous.playlistId, playlistEtag: previous.playlistEtag, playlist: previous.playlist, assets: assets, playbackState: playbackState))
   }
 
   func hello() async throws -> Surface {
@@ -382,38 +461,35 @@ class ArtProjectorState: ObservableObject {
 
     return surface
   }
-  
+
   func transitionToNoPlaylist(surface: Surface) {
     // TODO: sanity check
-    self.state = .noPlaylist(SurfaceNoPlaylist(surface: surface))
+    state = .noPlaylist(SurfaceNoPlaylist(surface: surface))
   }
-  
+
   func transitionToLoadingPlaylist(surface: Surface, playlistId: String, playlistEtag: String?) {
     // TODO: sanity check
-    self.state = .loadingPlaylist(SurfacePlaylistLoading(surface: surface, playlistId: playlistId, playlistEtag: playlistEtag))
+    state = .loadingPlaylist(SurfacePlaylistLoading(surface: surface, playlistId: playlistId, playlistEtag: playlistEtag))
   }
-  
-  func transitionToDownloadingPlaylistAssets(playlist: ArtResponses.PlaylistResponse.PlaylistHttpResponse.Playlist, queue:  DownloadQueue<ImageDownload>) throws {
+
+  func transitionToDownloadingPlaylistAssets(playlist: ArtResponses.PlaylistResponse.PlaylistHttpResponse.Playlist, queue: DownloadQueue<ImageDownload>) throws {
     guard case let .loadingPlaylist(state) = state else {
       throw Errors.invalidStateTransition
     }
 
-    
     self.state = .downloadingAssets(SurfacePlaylistDownloading(surface: state.surface, playlistId: state.playlistId, playlistEtag: state.playlistEtag, playlist: playlist, queue: queue))
   }
-  
-  func downloadPlaylist(playlistId: String) async throws {
+
+  func downloadPlaylist(playlistId: String) async throws -> ArtResponses.PlaylistResponse {
     let accessToken = try await getAccessToken()
     let playlist = try await ArtAPI.playlist(token: accessToken, playlistId: playlistId)
 
     print("which gave us \(playlist)")
 
-    let needs = assetsNeeded(scenes: playlist.playlist.scenes)
-    let queue = DownloadQueue<ImageDownload>(concurrency: 1)
-
+    return playlist
   }
 
-  func thonk() throws {
+  func thonk() {
     Task {
       do {
         let surface = try await self.hello()
@@ -423,17 +499,16 @@ class ArtProjectorState: ObservableObject {
 
           self.transitionToLoadingPlaylist(surface: surface, playlistId: playlistId, playlistEtag: nil) // TODO: Know etag from caching
 
-          let accessToken = try await self.getAccessToken()
-          let playlist = try await ArtAPI.playlist(token: accessToken, playlistId: playlistId)
-
+          let playlist = try await downloadPlaylist(playlistId: playlistId)
           print("which gave us \(playlist)")
 
-          let needs = assetsNeeded(scenes: playlist.playlist.scenes)
           let queue = DownloadQueue<ImageDownload>(concurrency: 1)
 
           try! self.transitionToDownloadingPlaylistAssets(playlist: playlist.playlist, queue: queue)
-          
+
+          let needs = assetsNeeded(scenes: playlist.playlist.scenes)
           let downloadedAssets = try await downloadAssets(assets: needs, queue: queue)
+
           try! self.transitionToPlaying(assets: downloadedAssets)
 
         } else {
@@ -461,6 +536,28 @@ class ArtProjectorState: ObservableObject {
     try FileManager.default.createDirectory(atPath: cacheBundle, withIntermediateDirectories: true)
 
     return URL(filePath: cacheBundle, directoryHint: .isDirectory)
+  }
+
+  func assetsNeeded(scenes: [ArtResponses.PlaylistResponse.PlaylistHttpResponse.Playlist.Scene]) -> [String] {
+    var assetIds = Set<String>()
+    for scene in scenes {
+      for asset in scene.assets {
+        assetIds.insert(asset.assetId)
+      }
+    }
+
+    return Array(assetIds)
+  }
+
+  func downloadAssetsM() async throws -> [ImageDownload] {
+    guard case let .downloadingAssets(downloadState) = state else {
+      throw Errors.invalidStateTransition
+    }
+
+    let needs = assetsNeeded(scenes: downloadState.playlist.scenes)
+    let assets = try await downloadAssets(assets: needs, queue: downloadState.queue)
+
+    return assets
   }
 
   func downloadAssets(assets: [String], queue: DownloadQueue<ImageDownload>) async throws -> [ImageDownload] {

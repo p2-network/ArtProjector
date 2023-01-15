@@ -78,9 +78,6 @@ struct RootView: View {
       }.rotationEffect(.degrees(Double(state.surface.rotation)))
     case let .downloadingAssets(state):
       ZStack(alignment: .center) {
-//        Color(white: 0.38)
-//          .edgesIgnoringSafeArea(.all)
-        
         VStack(alignment: .center) {
           Spacer()
           Image(systemName: "photo.artframe")
@@ -96,24 +93,7 @@ struct RootView: View {
         }
       }.frame(width: 1080, height: 1920).rotationEffect(.degrees(Double(state.surface.rotation)))
     case let .playing(state):
-      ZStack(alignment: .center) {
-//        Color(white: 0.38)
-//          .edgesIgnoringSafeArea(.all)
-        
-        VStack(alignment: .center) {
-          Spacer()
-          Image(systemName: "photo.artframe")
-            .resizable()
-            .aspectRatio(contentMode: .fit)
-            .padding(.horizontal, 100.0)
-          Spacer()
-          Text(state.surface.name).font(.largeTitle)
-          Text("Playlist: \(state.playlist.name)")
-          Spacer()
-          Text("All assets ready").font(.footnote)
-          Spacer()
-        }
-      }.frame(width: 1080, height: 1920).rotationEffect(.degrees(Double(state.surface.rotation)))
+      PlayingView().environmentObject(state.playbackState).withCustomRotation(rotation: state.surface.rotation)
     }
   }
 }
