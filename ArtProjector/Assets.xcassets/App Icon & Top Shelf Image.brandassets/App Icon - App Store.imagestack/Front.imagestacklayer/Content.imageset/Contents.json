@@ -1,10 +1,12 @@
 {
   "images" : [
     {
+      "filename" : "Dev - Front@1280w.png",
       "idiom" : "tv",
       "scale" : "1x"
     },
     {
+      "filename" : "Dev - Front@2560w.png",
       "idiom" : "tv",
       "scale" : "2x"
     }
