@@ -115,21 +115,27 @@ extension ArtResponse {
   }
 }
 
+extension Bundle {
+    var apiBaseURL: String {
+  return object(forInfoDictionaryKey: "x-live-twopats-ServerBaseURL") as? String ?? ""
+    }
+}
+
 enum ArtAPI {
   enum Errors: Error {
     case httpEror(AFError)
   }
 
-  enum Config {
-    static let prefix = "https://fc103km01j.execute-api.ap-southeast-2.amazonaws.com/v1"
-  }
+  enum Config {}
 
   static func register(token: String) async throws -> ArtResponse<ArtResponses.Register> {
     let data = ["os": "appletv"]
 
     let headers = HTTPHeaders(["Authorization": "Bearer \(token)"])
 
-    let request = AF.request(ArtAPI.Config.prefix.appending("/surface/register"), method: .post, parameters: data, encoder: JSONParameterEncoder.default, headers: headers)
+    
+    
+    let request = AF.request(Bundle.main.apiBaseURL.appending("/v1/surface/register"), method: .post, parameters: data, encoder: JSONParameterEncoder.default, headers: headers)
 
     do {
       let response = try await request.serializingDecodable(ArtResponse<ArtResponses.Register>.self).value
@@ -144,7 +150,7 @@ enum ArtAPI {
   static func hello(token: String, surfaceId: String) async throws -> ArtResponses.Hello {
     let headers = HTTPHeaders(["Authorization": "Bearer \(token)"])
 
-    let request = AF.request(ArtAPI.Config.prefix.appending("/surface/\(surfaceId)/hello"), method: .get, parameters: Alamofire.Empty.value, encoder: URLEncodedFormParameterEncoder.default, headers: headers)
+    let request = AF.request(Bundle.main.apiBaseURL.appending("/v1/surface/\(surfaceId)/hello"), method: .get, parameters: Alamofire.Empty.value, encoder: URLEncodedFormParameterEncoder.default, headers: headers)
 
     do {
       let task = request.serializingDecodable(ArtResponse<ArtResponses.Hello>.self)
@@ -178,7 +184,7 @@ enum ArtAPI {
   static func playlist(token: String, playlistId: String) async throws -> ArtResponses.PlaylistResponse {
     let headers = HTTPHeaders(["Authorization": "Bearer \(token)"])
 
-    let request = AF.request(ArtAPI.Config.prefix.appending("/playlist/\(playlistId)"), method: .get, parameters: Alamofire.Empty.value, encoder: URLEncodedFormParameterEncoder.default, headers: headers)
+    let request = AF.request(Bundle.main.apiBaseURL.appending("/v1/playlist/\(playlistId)"), method: .get, parameters: Alamofire.Empty.value, encoder: URLEncodedFormParameterEncoder.default, headers: headers)
 
     do {
       let task = request.serializingDecodable(ArtResponse<ArtResponses.PlaylistResponse.PlaylistHttpResponse>.self)
@@ -213,7 +219,7 @@ enum ArtAPI {
   static func asset(token: String, assetId: String) async throws -> ArtResponses.AssetResponse {
     let headers = HTTPHeaders(["Authorization": "Bearer \(token)"])
 
-    let request = AF.request(ArtAPI.Config.prefix.appending("/asset/\(assetId)"), method: .get, parameters: Alamofire.Empty.value, encoder: URLEncodedFormParameterEncoder.default, headers: headers)
+    let request = AF.request(Bundle.main.apiBaseURL.appending("/v1/asset/\(assetId)"), method: .get, parameters: Alamofire.Empty.value, encoder: URLEncodedFormParameterEncoder.default, headers: headers)
     
     do {
       let task = request.serializingDecodable(ArtResponse<ArtResponses.AssetResponse>.self)
