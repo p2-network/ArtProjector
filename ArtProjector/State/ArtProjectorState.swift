@@ -10,13 +10,6 @@ import Combine
 import Foundation
 import SimpleKeychain
 
-// {
-//  "access_token": "{{JWT HERE}}",
-//  "scope": "surface offline_access",
-//  "expires_in": 86400,
-//  "token_type": "Bearer"
-// }
-
 struct DeviceCodeResponse: Decodable {
   let device_code: String
   let user_code: String
@@ -24,24 +17,6 @@ struct DeviceCodeResponse: Decodable {
   let expires_in: Int32
   let interval: Int32
   let verification_uri_complete: String
-}
-
-struct DeviceCodeWaiting {
-  let verificationUri: String
-  let userCode: String
-  let expiresAt: Date
-  let refreshInterval: TimeInterval
-  let deviceCode: String
-}
-
-struct Surface {
-  let name: String
-  let rotation: Int32
-  let playlistId: String?
-}
-
-struct SurfaceNoPlaylist {
-  let surface: Surface
 }
 
 struct SurfacePlaylistLoading {
@@ -64,20 +39,6 @@ struct SurfacePlaylistPlaying {
   let playlistEtag: String?
   let playlist: ArtResponses.PlaylistResponse.PlaylistHttpResponse.Playlist
   let assets: [ImageDownload]
-}
-
-enum AuthConfig {
-  static let clientID = "YSggLzW0dOBpfGbYIGm8nl690NN4RIIf"
-  static let audience = "https://artprojector.p2.network/"
-  static let scope = "surface offline_access email"
-  static let deviceCodeEndpoint = "https://twopats.au.auth0.com/oauth/device/code"
-  static let tokenEndpoint = "https://twopats.au.auth0.com/oauth/token"
-
-  enum Keys {
-    static let refreshToken = "auth-refresh-token"
-    static let accessToken = "auth-access-token"
-    static let accessTokenExpiresAt = "auth-access-token-expires-at"
-  }
 }
 
 @MainActor
