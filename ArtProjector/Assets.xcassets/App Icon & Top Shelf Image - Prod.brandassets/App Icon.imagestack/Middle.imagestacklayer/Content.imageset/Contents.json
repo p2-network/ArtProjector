@@ -1,7 +1,6 @@
 {
   "images" : [
     {
-      "filename" : "Small - Middle.png",
       "idiom" : "tv",
       "scale" : "1x"
     },
@@ -10,7 +9,6 @@
       "scale" : "2x"
     },
     {
-      "filename" : "Large - Middle.png",
       "idiom" : "tv-marketing",
       "scale" : "1x"
     },

@@ -33,6 +33,29 @@
 		CD82C6FE297391940068B2F6 /* PlayingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD82C6FD297391940068B2F6 /* PlayingView.swift */; };
 		CD82C700297393830068B2F6 /* withCustomRotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD82C6FF297393830068B2F6 /* withCustomRotation.swift */; };
 		CD82C7022973AEB20068B2F6 /* PlaybackState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD82C7012973AEB20068B2F6 /* PlaybackState.swift */; };
+		CD82C70A2973B7DD0068B2F6 /* Auth0.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD574122295C15B70049D2E6 /* Auth0.swift */; };
+		CD82C70B2973B7DD0068B2F6 /* DownloadQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD208B7E29724B33003F0566 /* DownloadQueue.swift */; };
+		CD82C70C2973B7DD0068B2F6 /* ArtProjectorState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD80949629555576003CB965 /* ArtProjectorState.swift */; };
+		CD82C70D2973B7DD0068B2F6 /* PlaybackState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD82C7012973AEB20068B2F6 /* PlaybackState.swift */; };
+		CD82C70E2973B7DD0068B2F6 /* HexagonParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD562496292240EB00343584 /* HexagonParameters.swift */; };
+		CD82C70F2973B7DD0068B2F6 /* Surface.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD82C6F92973855B0068B2F6 /* Surface.swift */; };
+		CD82C7102973B7DD0068B2F6 /* ImagePlaybackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD56246E29221FEE00343584 /* ImagePlaybackView.swift */; };
+		CD82C7112973B7DD0068B2F6 /* ImageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD208B80297274FA003F0566 /* ImageType.swift */; };
+		CD82C7122973B7DD0068B2F6 /* AuthConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD82C6F4297384BC0068B2F6 /* AuthConfig.swift */; };
+		CD82C7132973B7DD0068B2F6 /* ArtAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD574124295C19AE0049D2E6 /* ArtAPI.swift */; };
+		CD82C7142973B7DD0068B2F6 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD80949B29557578003CB965 /* RootView.swift */; };
+		CD82C7152973B7DD0068B2F6 /* withCustomRotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD82C6FF297393830068B2F6 /* withCustomRotation.swift */; };
+		CD82C7162973B7DD0068B2F6 /* SurfaceNoPlaylist.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD82C6FB297385700068B2F6 /* SurfaceNoPlaylist.swift */; };
+		CD82C7172973B7DD0068B2F6 /* DeviceCodeWaiting.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD82C6F7297385050068B2F6 /* DeviceCodeWaiting.swift */; };
+		CD82C7182973B7DD0068B2F6 /* ArtProjectorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD56246C29221FEE00343584 /* ArtProjectorApp.swift */; };
+		CD82C7192973B7DD0068B2F6 /* PlayingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD82C6FD297391940068B2F6 /* PlayingView.swift */; };
+		CD82C71A2973B7DD0068B2F6 /* ArtItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD56249A292241B900343584 /* ArtItem.swift */; };
+		CD82C71B2973B7DD0068B2F6 /* TaskQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD208B82297283A8003F0566 /* TaskQueue.swift */; };
+		CD82C71C2973B7DD0068B2F6 /* BadgeBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5624982922410900343584 /* BadgeBackground.swift */; };
+		CD82C71E2973B7DD0068B2F6 /* SimpleKeychain in Frameworks */ = {isa = PBXBuildFile; productRef = CD82C7052973B7DD0068B2F6 /* SimpleKeychain */; };
+		CD82C71F2973B7DD0068B2F6 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = CD82C7072973B7DD0068B2F6 /* Alamofire */; };
+		CD82C7212973B7DD0068B2F6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD56247329221FEF00343584 /* Preview Assets.xcassets */; };
+		CD82C7222973B7DD0068B2F6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD56247029221FEF00343584 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +103,9 @@
 		CD82C6FD297391940068B2F6 /* PlayingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayingView.swift; sourceTree = "<group>"; };
 		CD82C6FF297393830068B2F6 /* withCustomRotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = withCustomRotation.swift; sourceTree = "<group>"; };
 		CD82C7012973AEB20068B2F6 /* PlaybackState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackState.swift; sourceTree = "<group>"; };
+		CD82C7032973B72E0068B2F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		CD82C7262973B7DD0068B2F6 /* ArtProjector-Prod.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ArtProjector-Prod.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD82C7272973B7DD0068B2F6 /* Prod-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Prod-Info.plist"; path = "/Users/patrick/Developer/ArtProjector/Prod-Info.plist"; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +132,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CD82C71D2973B7DD0068B2F6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD82C71E2973B7DD0068B2F6 /* SimpleKeychain in Frameworks */,
+				CD82C71F2973B7DD0068B2F6 /* Alamofire in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -125,6 +160,7 @@
 				CD56246929221FEE00343584 /* ArtProjector.app */,
 				CD56247929221FEF00343584 /* ArtProjectorTests.xctest */,
 				CD56248329221FF000343584 /* ArtProjectorUITests.xctest */,
+				CD82C7262973B7DD0068B2F6 /* ArtProjector-Prod.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -132,6 +168,8 @@
 		CD56246B29221FEE00343584 /* ArtProjector */ = {
 			isa = PBXGroup;
 			children = (
+				CD82C7032973B72E0068B2F6 /* Info.plist */,
+				CD82C7272973B7DD0068B2F6 /* Prod-Info.plist */,
 				CD82C6F32973829C0068B2F6 /* Views */,
 				CD82C6F1297381F40068B2F6 /* State */,
 				CD56246C29221FEE00343584 /* ArtProjectorApp.swift */,
@@ -274,6 +312,27 @@
 			productReference = CD56248329221FF000343584 /* ArtProjectorUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		CD82C7042973B7DD0068B2F6 /* ArtProjector-Prod */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CD82C7232973B7DD0068B2F6 /* Build configuration list for PBXNativeTarget "ArtProjector-Prod" */;
+			buildPhases = (
+				CD82C7092973B7DD0068B2F6 /* Sources */,
+				CD82C71D2973B7DD0068B2F6 /* Frameworks */,
+				CD82C7202973B7DD0068B2F6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "ArtProjector-Prod";
+			packageProductDependencies = (
+				CD82C7052973B7DD0068B2F6 /* SimpleKeychain */,
+				CD82C7072973B7DD0068B2F6 /* Alamofire */,
+			);
+			productName = ArtProjector;
+			productReference = CD82C7262973B7DD0068B2F6 /* ArtProjector-Prod.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -315,6 +374,7 @@
 			projectRoot = "";
 			targets = (
 				CD56246829221FEE00343584 /* ArtProjector */,
+				CD82C7042973B7DD0068B2F6 /* ArtProjector-Prod */,
 				CD56247829221FEF00343584 /* ArtProjectorTests */,
 				CD56248229221FF000343584 /* ArtProjectorUITests */,
 			);
@@ -342,6 +402,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CD82C7202973B7DD0068B2F6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD82C7212973B7DD0068B2F6 /* Preview Assets.xcassets in Resources */,
+				CD82C7222973B7DD0068B2F6 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -388,6 +457,32 @@
 			files = (
 				CD56248829221FF000343584 /* ArtProjectorUITests.swift in Sources */,
 				CD56248A29221FF000343584 /* ArtProjectorUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CD82C7092973B7DD0068B2F6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD82C70A2973B7DD0068B2F6 /* Auth0.swift in Sources */,
+				CD82C70B2973B7DD0068B2F6 /* DownloadQueue.swift in Sources */,
+				CD82C70C2973B7DD0068B2F6 /* ArtProjectorState.swift in Sources */,
+				CD82C70D2973B7DD0068B2F6 /* PlaybackState.swift in Sources */,
+				CD82C70E2973B7DD0068B2F6 /* HexagonParameters.swift in Sources */,
+				CD82C70F2973B7DD0068B2F6 /* Surface.swift in Sources */,
+				CD82C7102973B7DD0068B2F6 /* ImagePlaybackView.swift in Sources */,
+				CD82C7112973B7DD0068B2F6 /* ImageType.swift in Sources */,
+				CD82C7122973B7DD0068B2F6 /* AuthConfig.swift in Sources */,
+				CD82C7132973B7DD0068B2F6 /* ArtAPI.swift in Sources */,
+				CD82C7142973B7DD0068B2F6 /* RootView.swift in Sources */,
+				CD82C7152973B7DD0068B2F6 /* withCustomRotation.swift in Sources */,
+				CD82C7162973B7DD0068B2F6 /* SurfaceNoPlaylist.swift in Sources */,
+				CD82C7172973B7DD0068B2F6 /* DeviceCodeWaiting.swift in Sources */,
+				CD82C7182973B7DD0068B2F6 /* ArtProjectorApp.swift in Sources */,
+				CD82C7192973B7DD0068B2F6 /* PlayingView.swift in Sources */,
+				CD82C71A2973B7DD0068B2F6 /* ArtItem.swift in Sources */,
+				CD82C71B2973B7DD0068B2F6 /* TaskQueue.swift in Sources */,
+				CD82C71C2973B7DD0068B2F6 /* BadgeBackground.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -532,6 +627,7 @@
 				DEVELOPMENT_TEAM = WA4JA55S9R;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ArtProjector/Info.plist;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UIUserInterfaceStyle = Automatic;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -558,6 +654,7 @@
 				DEVELOPMENT_TEAM = WA4JA55S9R;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ArtProjector/Info.plist;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UIUserInterfaceStyle = Automatic;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -649,6 +746,60 @@
 			};
 			name = Release;
 		};
+		CD82C7242973B7DD0068B2F6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image - Prod";
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"ArtProjector/Preview Content\"";
+				DEVELOPMENT_TEAM = WA4JA55S9R;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Prod-Info.plist";
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Automatic;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = network.p2.ArtProject.prod;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 3;
+			};
+			name = Debug;
+		};
+		CD82C7252973B7DD0068B2F6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image - Prod";
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"ArtProjector/Preview Content\"";
+				DEVELOPMENT_TEAM = WA4JA55S9R;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Prod-Info.plist";
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Automatic;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = network.p2.ArtProject.prod;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 3;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -688,6 +839,15 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		CD82C7232973B7DD0068B2F6 /* Build configuration list for PBXNativeTarget "ArtProjector-Prod" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CD82C7242973B7DD0068B2F6 /* Debug */,
+				CD82C7252973B7DD0068B2F6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
@@ -707,6 +867,22 @@
 				minimumVersion = 5.6.1;
 			};
 		};
+		CD82C7062973B7DD0068B2F6 /* XCRemoteSwiftPackageReference "SimpleKeychain" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/auth0/SimpleKeychain";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+		CD82C7082973B7DD0068B2F6 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.6.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -718,6 +894,16 @@
 		CD80949929557410003CB965 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = CD80949829557410003CB965 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		CD82C7052973B7DD0068B2F6 /* SimpleKeychain */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CD82C7062973B7DD0068B2F6 /* XCRemoteSwiftPackageReference "SimpleKeychain" */;
+			productName = SimpleKeychain;
+		};
+		CD82C7072973B7DD0068B2F6 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CD82C7082973B7DD0068B2F6 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
 		};
 /* End XCSwiftPackageProductDependency section */
