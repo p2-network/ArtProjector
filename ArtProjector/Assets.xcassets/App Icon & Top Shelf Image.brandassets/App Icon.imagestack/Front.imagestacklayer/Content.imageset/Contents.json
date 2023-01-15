@@ -1,16 +1,16 @@
 {
   "images" : [
     {
-      "filename" : "Small - Front.png",
+      "filename" : "Dev - Front.png",
       "idiom" : "tv",
       "scale" : "1x"
     },
     {
+      "filename" : "Dev - Front@2x.png",
       "idiom" : "tv",
       "scale" : "2x"
     },
     {
-      "filename" : "Large - Front.png",
       "idiom" : "tv-marketing",
       "scale" : "1x"
     },
