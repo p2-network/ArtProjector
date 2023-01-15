@@ -32,6 +32,7 @@
 		CD82C6FC297385700068B2F6 /* SurfaceNoPlaylist.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD82C6FB297385700068B2F6 /* SurfaceNoPlaylist.swift */; };
 		CD82C6FE297391940068B2F6 /* PlayingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD82C6FD297391940068B2F6 /* PlayingView.swift */; };
 		CD82C700297393830068B2F6 /* withCustomRotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD82C6FF297393830068B2F6 /* withCustomRotation.swift */; };
+		CD82C7022973AEB20068B2F6 /* PlaybackState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD82C7012973AEB20068B2F6 /* PlaybackState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +79,7 @@
 		CD82C6FB297385700068B2F6 /* SurfaceNoPlaylist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurfaceNoPlaylist.swift; sourceTree = "<group>"; };
 		CD82C6FD297391940068B2F6 /* PlayingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayingView.swift; sourceTree = "<group>"; };
 		CD82C6FF297393830068B2F6 /* withCustomRotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = withCustomRotation.swift; sourceTree = "<group>"; };
+		CD82C7012973AEB20068B2F6 /* PlaybackState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +179,7 @@
 				CD56249A292241B900343584 /* ArtItem.swift */,
 				CD82C6F2297382050068B2F6 /* API */,
 				CD82C6F4297384BC0068B2F6 /* AuthConfig.swift */,
+				CD82C7012973AEB20068B2F6 /* PlaybackState.swift */,
 			);
 			path = State;
 			sourceTree = "<group>";
@@ -352,6 +355,7 @@
 				CD574123295C15B70049D2E6 /* Auth0.swift in Sources */,
 				CD208B7F29724B33003F0566 /* DownloadQueue.swift in Sources */,
 				CD80949729555576003CB965 /* ArtProjectorState.swift in Sources */,
+				CD82C7022973AEB20068B2F6 /* PlaybackState.swift in Sources */,
 				CD562497292240EB00343584 /* HexagonParameters.swift in Sources */,
 				CD82C6FA2973855B0068B2F6 /* Surface.swift in Sources */,
 				CD56246F29221FEE00343584 /* ImagePlaybackView.swift in Sources */,
