@@ -7,13 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CD208B7F29724B33003F0566 /* DownloadQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD208B7E29724B33003F0566 /* DownloadQueue.swift */; };
+		CD208B81297274FA003F0566 /* ImageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD208B80297274FA003F0566 /* ImageType.swift */; };
+		CD208B83297283A8003F0566 /* TaskQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD208B82297283A8003F0566 /* TaskQueue.swift */; };
 		CD56246D29221FEE00343584 /* ArtProjectorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD56246C29221FEE00343584 /* ArtProjectorApp.swift */; };
-		CD56246F29221FEE00343584 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD56246E29221FEE00343584 /* ContentView.swift */; };
+		CD56246F29221FEE00343584 /* ImagePlaybackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD56246E29221FEE00343584 /* ImagePlaybackView.swift */; };
 		CD56247129221FEF00343584 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD56247029221FEF00343584 /* Assets.xcassets */; };
 		CD56247429221FEF00343584 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD56247329221FEF00343584 /* Preview Assets.xcassets */; };
 		CD56247E29221FEF00343584 /* ArtProjectorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD56247D29221FEF00343584 /* ArtProjectorTests.swift */; };
 		CD56248829221FF000343584 /* ArtProjectorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD56248729221FF000343584 /* ArtProjectorUITests.swift */; };
 		CD56248A29221FF000343584 /* ArtProjectorUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD56248929221FF000343584 /* ArtProjectorUITestsLaunchTests.swift */; };
+		CD562497292240EB00343584 /* HexagonParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD562496292240EB00343584 /* HexagonParameters.swift */; };
+		CD5624992922410900343584 /* BadgeBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5624982922410900343584 /* BadgeBackground.swift */; };
+		CD56249B292241B900343584 /* ArtItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD56249A292241B900343584 /* ArtItem.swift */; };
+		CD574123295C15B70049D2E6 /* Auth0.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD574122295C15B70049D2E6 /* Auth0.swift */; };
+		CD574125295C19AE0049D2E6 /* ArtAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD574124295C19AE0049D2E6 /* ArtAPI.swift */; };
+		CD809495295553CF003CB965 /* SimpleKeychain in Frameworks */ = {isa = PBXBuildFile; productRef = CD809494295553CF003CB965 /* SimpleKeychain */; };
+		CD80949729555576003CB965 /* ArtProjectorState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD80949629555576003CB965 /* ArtProjectorState.swift */; };
+		CD80949A29557410003CB965 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = CD80949929557410003CB965 /* Alamofire */; };
+		CD80949C29557578003CB965 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD80949B29557578003CB965 /* RootView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,9 +46,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CD208B7E29724B33003F0566 /* DownloadQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadQueue.swift; sourceTree = "<group>"; };
+		CD208B80297274FA003F0566 /* ImageType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageType.swift; sourceTree = "<group>"; };
+		CD208B82297283A8003F0566 /* TaskQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskQueue.swift; sourceTree = "<group>"; };
 		CD56246929221FEE00343584 /* ArtProjector.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ArtProjector.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD56246C29221FEE00343584 /* ArtProjectorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtProjectorApp.swift; sourceTree = "<group>"; };
-		CD56246E29221FEE00343584 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		CD56246E29221FEE00343584 /* ImagePlaybackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePlaybackView.swift; sourceTree = "<group>"; };
 		CD56247029221FEF00343584 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CD56247329221FEF00343584 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CD56247929221FEF00343584 /* ArtProjectorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ArtProjectorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,6 +59,13 @@
 		CD56248329221FF000343584 /* ArtProjectorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ArtProjectorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD56248729221FF000343584 /* ArtProjectorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtProjectorUITests.swift; sourceTree = "<group>"; };
 		CD56248929221FF000343584 /* ArtProjectorUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtProjectorUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		CD562496292240EB00343584 /* HexagonParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexagonParameters.swift; sourceTree = "<group>"; };
+		CD5624982922410900343584 /* BadgeBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeBackground.swift; sourceTree = "<group>"; };
+		CD56249A292241B900343584 /* ArtItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtItem.swift; sourceTree = "<group>"; };
+		CD574122295C15B70049D2E6 /* Auth0.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Auth0.swift; sourceTree = "<group>"; };
+		CD574124295C19AE0049D2E6 /* ArtAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtAPI.swift; sourceTree = "<group>"; };
+		CD80949629555576003CB965 /* ArtProjectorState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtProjectorState.swift; sourceTree = "<group>"; };
+		CD80949B29557578003CB965 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +73,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD809495295553CF003CB965 /* SimpleKeychain in Frameworks */,
+				CD80949A29557410003CB965 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,10 +118,13 @@
 		CD56246B29221FEE00343584 /* ArtProjector */ = {
 			isa = PBXGroup;
 			children = (
+				CD82C6F32973829C0068B2F6 /* Views */,
+				CD82C6F1297381F40068B2F6 /* State */,
 				CD56246C29221FEE00343584 /* ArtProjectorApp.swift */,
-				CD56246E29221FEE00343584 /* ContentView.swift */,
 				CD56247029221FEF00343584 /* Assets.xcassets */,
 				CD56247229221FEF00343584 /* Preview Content */,
+				CD562496292240EB00343584 /* HexagonParameters.swift */,
+				CD5624982922410900343584 /* BadgeBackground.swift */,
 			);
 			path = ArtProjector;
 			sourceTree = "<group>";
@@ -127,6 +154,37 @@
 			path = ArtProjectorUITests;
 			sourceTree = "<group>";
 		};
+		CD82C6F1297381F40068B2F6 /* State */ = {
+			isa = PBXGroup;
+			children = (
+				CD80949629555576003CB965 /* ArtProjectorState.swift */,
+				CD208B7E29724B33003F0566 /* DownloadQueue.swift */,
+				CD208B80297274FA003F0566 /* ImageType.swift */,
+				CD208B82297283A8003F0566 /* TaskQueue.swift */,
+				CD56249A292241B900343584 /* ArtItem.swift */,
+				CD82C6F2297382050068B2F6 /* API */,
+			);
+			path = State;
+			sourceTree = "<group>";
+		};
+		CD82C6F2297382050068B2F6 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				CD574122295C15B70049D2E6 /* Auth0.swift */,
+				CD574124295C19AE0049D2E6 /* ArtAPI.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		CD82C6F32973829C0068B2F6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CD80949B29557578003CB965 /* RootView.swift */,
+				CD56246E29221FEE00343584 /* ImagePlaybackView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -143,6 +201,10 @@
 			dependencies = (
 			);
 			name = ArtProjector;
+			packageProductDependencies = (
+				CD809494295553CF003CB965 /* SimpleKeychain */,
+				CD80949929557410003CB965 /* Alamofire */,
+			);
 			productName = ArtProjector;
 			productReference = CD56246929221FEE00343584 /* ArtProjector.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +277,10 @@
 				Base,
 			);
 			mainGroup = CD56246029221FEE00343584;
+			packageReferences = (
+				CD809493295553CF003CB965 /* XCRemoteSwiftPackageReference "SimpleKeychain" */,
+				CD80949829557410003CB965 /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = CD56246A29221FEE00343584 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -257,8 +323,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CD56246F29221FEE00343584 /* ContentView.swift in Sources */,
+				CD574123295C15B70049D2E6 /* Auth0.swift in Sources */,
+				CD208B7F29724B33003F0566 /* DownloadQueue.swift in Sources */,
+				CD80949729555576003CB965 /* ArtProjectorState.swift in Sources */,
+				CD562497292240EB00343584 /* HexagonParameters.swift in Sources */,
+				CD56246F29221FEE00343584 /* ImagePlaybackView.swift in Sources */,
+				CD208B81297274FA003F0566 /* ImageType.swift in Sources */,
+				CD574125295C19AE0049D2E6 /* ArtAPI.swift in Sources */,
+				CD80949C29557578003CB965 /* RootView.swift in Sources */,
 				CD56246D29221FEE00343584 /* ArtProjectorApp.swift in Sources */,
+				CD56249B292241B900343584 /* ArtItem.swift in Sources */,
+				CD208B83297283A8003F0566 /* TaskQueue.swift in Sources */,
+				CD5624992922410900343584 /* BadgeBackground.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -577,6 +653,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		CD809493295553CF003CB965 /* XCRemoteSwiftPackageReference "SimpleKeychain" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/auth0/SimpleKeychain";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+		CD80949829557410003CB965 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.6.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		CD809494295553CF003CB965 /* SimpleKeychain */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CD809493295553CF003CB965 /* XCRemoteSwiftPackageReference "SimpleKeychain" */;
+			productName = SimpleKeychain;
+		};
+		CD80949929557410003CB965 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CD80949829557410003CB965 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = CD56246129221FEE00343584 /* Project object */;
 }
