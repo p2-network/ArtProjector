@@ -68,7 +68,7 @@ class PlaybackState: ObservableObject {
     print("Next scene change in \(remainingTime)")
 
     // TODO: HACK TIME THING
-    changeSceneTimer = Timer.scheduledTimer(withTimeInterval: TimeInterval(remainingTime / 60), repeats: false) { _ in
+    changeSceneTimer = Timer.scheduledTimer(withTimeInterval: TimeInterval(remainingTime), repeats: false) { _ in
       Task {
         await self.nextScene()
       }
